@@ -1,0 +1,104 @@
+#plansza
+{
+    display: grid;
+    grid-template-columns: repeat(9, 5em);
+    grid-template-rows: repeat(12, 5em);
+}
+
+#pole_start
+{
+    background-color: black;
+    color: white;
+    grid-column: 3/5;
+    grid-row: 2/3;
+}
+
+#pole1
+{
+    background-color: red;
+    grid-column: 5/6;
+    grid-row: 2/3;
+}
+
+#pole_home
+{
+    
+}
+
+#pole2
+{
+    background-color: aqua;
+    grid-column: 7/8;
+    grid-row: 2/3;
+}
+
+#pole3
+{
+    background-color: blueviolet;
+    grid-column: 7/8;
+    grid-row: 3/4;
+}
+
+#pole4
+{
+    background-color: dodgerblue;
+    grid-column: 7/8;
+    grid-row: 4/5;
+}
+
+#pole5
+{
+    background-color: forestgreen;
+    grid-column: 6/7;
+    grid-row: 4/5;
+}
+
+#pole_shop
+{
+    
+}
+
+#pole6
+{
+    background-color: chartreuse;
+    grid-column: 4/5;
+    grid-row: 4/5;
+}
+
+#pole_contact
+{
+    
+}
+
+#pole7
+{
+    background-color: deeppink;
+    grid-column: 3/4;
+    grid-row: 5/6;
+}
+
+#pole8
+{
+    background-color: darkorange;
+    grid-column: 3/4;
+    grid-row: 6/7;
+}
+
+#pole_about
+{
+    
+}
+
+#pole9
+{
+    background-color: coral;
+    grid-column: 5/6;
+    grid-row: 6/7;
+}
+
+#pole_meta
+{
+    background-color: black;
+    grid-column: 6/8;
+    grid-row: 6/7;
+}
