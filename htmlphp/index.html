@@ -5,32 +5,53 @@
     <title>Gry planszowe</title>
     <meta charset="utf-8">
 
-    <!--bootstrapowy css-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
     <!--css-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/plansza.css">
+
+
 </head>
 
 <body>
     <div id="plansza">
         <div id="pole_start">START</div>
         <div id="pole1"></div>
-        <div id="pole_home"></div>
+        <div id="pole_home" data-toggle="tooltip" data-placement="top" title="Home page">Strona główna</div>
         <div id="pole2"></div>
         <div id="pole3"></div>
         <div id="pole4"></div>
         <div id="pole5"></div>
-        <div id="pole_shop"></div>
+        <div id="pole_shop" data-toggle="tooltip" data-placement="top" title="Shop">Sklep</div>
         <div id="pole6"></div>
-        <div id="pole_contact"></div>
+        <div id="pole_contact" data-toggle="tooltip" data-placement="top" title="Contact us">Kontakt</div>
         <div id="pole7"></div>
         <div id="pole8"></div>
-        <div id="pole_about"></div>
+        <div id="pole_about" data-toggle="tooltip" data-placement="top" title="About us">O nas</div>
         <div id="pole9"></div>
         <div id="pole_meta"></div>
     </div>
+
+
+    <!-- bootstrapowy js-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--tooltip script-->
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 
 </html>

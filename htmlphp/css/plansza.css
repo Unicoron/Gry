@@ -22,7 +22,8 @@
 
 #pole_home
 {
-    
+    grid-column: 6/7;
+    grid-row: 2/3;
 }
 
 #pole2
@@ -55,7 +56,8 @@
 
 #pole_shop
 {
-    
+    grid-column: 5/6;
+    grid-row: 4/5;
 }
 
 #pole6
@@ -67,7 +69,8 @@
 
 #pole_contact
 {
-    
+    grid-column: 3/4;
+    grid-row: 4/5;
 }
 
 #pole7
@@ -86,7 +89,8 @@
 
 #pole_about
 {
-    
+    grid-column: 4/5;
+    grid-row: 6/7;
 }
 
 #pole9
@@ -102,3 +106,5 @@
     grid-column: 6/8;
     grid-row: 6/7;
 }
+
+
