@@ -8,15 +8,146 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
+    <!-- vue.js development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <!--css-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menufooter.css">
+    <link rel="stylesheet" href="css/slider.css">
+
+    <!--slider-->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
+
+    <!--kalendarz-->
+    <link rel="stylesheet" href="css/calendar.css">
+    <script src="js/calendar.js"></script>
 
 </head>
 
 <body>
-    
+    <div class="carousel-wrapper">
+        <div class="carousel" data-flickity>
+            <div class="carousel-cell">
+                <h3>Product 1</h3>
+                <a class="more" href="">Explore more</a>
+                <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" />
+                <div class="line"></div>
+                <div class="price">
+                    <span>225<sup>€</sup></span>
+                </div>
+            </div>
+            <div class="carousel-cell">
+                <h3>Product 2</h3>
+                <a class="more" href="">Explore more</a>
+                <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" />
+                <div class="line"></div>
+                <div class="price">
+                    <span>225<sup>€</sup></span>
+                </div>
+            </div>
+            <div class="carousel-cell">
+                <h3>Product 3</h3>
+                <a class="more" href="">Explore more</a>
+                <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" />
+                <div class="line"></div>
+                <div class="price">
+                    <span>225<sup>€</sup></span>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!--kalendarz-->
+    <div id="app">
+        <b-container>
+            <main class="b-calendar">
+                <b-row>
+                    <b-col md="4">
+                        <div class="b-calendar__information">
+                            <div class="today d-flex justify-content-center align-items-center">
+                                <div class="weekDay">
+                                    {{selectedWeekDay | capitalize}}
+                                </div>
+                                <div class="day">
+                                    {{selectedDayAndMonth.day}}
+                                </div>
+                                <div class="month">
+                                    {{selectedDayAndMonth.month | capitalize}}
+                                </div>
+                                <a href="#" id="goTodayLink" @click="goToday" v-show="!todayInCurrentMonthAndYear || !todayIsEqualSelectDate">
+                                    Today
+                                </a>
+                                <b-tooltip target="goTodayLink" v-show="!todayInCurrentMonthAndYear || !todayIsEqualSelectDate">
+                                    Back to today
+                                </b-tooltip>
+                            </div>
+                        </div>
+                    </b-col>
+                    <b-col md="8">
+                        <div class="b-calendar__calendar">
+                            <div class="b-calendar__header">
+                                <b-row>
+                                    <b-col class="year text-right" align-h="end">
+                                        <span>{{year}}</span>
+                                    </b-col>
+                                </b-row>
+                                <b-row align-v="center">
+                                    <b-col class="text-left" align-h="start">
+                                        <b-button id="subtractMonthBtn" class="arrow arrow-left" variant="light" @click="subtractMonth">
+                                            <i class="fa fa-fw fa-chevron-left"></i>
+                                        </b-button>
+                                        <b-tooltip target="subtractMonthBtn">
+                                            {{previousMonthAsString | capitalize}}
+                                        </b-tooltip>
+                                    </b-col>
+                                    <b-col class="text-center" align-h="center">
+                                        <span class="month">{{month}}</span>
+                                    </b-col>
+                                    <b-col class="text-right d-flex flex-row-reverse" align-h="end">
+                                        <b-button id="addMonthBtn" class="arrow arrow-right" variant="light" @click="addMonth">
+                                            <i class="fa fa-fw fa-chevron-right"></i>
+                                        </b-button>
+                                        <b-tooltip target="addMonthBtn">
+                                            {{nextMonthAsString | capitalize}}
+                                        </b-tooltip>
+                                    </b-col>
+                                </b-row>
+                            </div>
+                            <div class="b-calendar__weekdays">
+                                <div class="weekday" v-for="(day, index) in days" :key="index">
+                                    <strong>{{day}}</strong>
+                                </div>
+                            </div>
+                            <div class="b-calendar__dates">
+                                <div class="date text-right" :class="{
+                                'today': date.today,
+                                'blank': date.blank,
+                                'no-border-right': date.key % 7 === 0,
+                             }" v-for="date in dateList" :key="date.key" :data-date="date.date" @click="setSelectedDate(date.moment)">
+                                    <span class="day">{{date.dayNumber}}</span>
+                                    <span class="weekday">{{date.weekDay}}</span>
+                                    <div class="additional" v-show="date.additional">
+                                        <span class="year" v-show="date.additional.year">{{date.additional.year}}</span>
+                                        <span class="month" v-show="date.additional.month">{{date.additional.month}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </b-col>
+                </b-row>
+            </main>
+            <footer class="b-footer">
+                <b-row align-v="center" align-h="center">
+                    <b-col md="6" class="text-center">
+                        You can view the calendar of events
+                        <b-link to="https://codepen.io/sanya_misharin/pen/bQgjog" target="_blank">here</b-link>
+                    </b-col>
+                </b-row>
+            </footer>
+        </b-container>
+    </div>
 
     <!-- bootstrapowy js-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
